@@ -1,0 +1,42 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum EntryType {
+  income
+  expense
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  passwordHash String   @map("password_hash")
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz
+
+  entries Entry[]
+
+  @@map("users")
+}
+
+model Entry {
+  id         Int       @id @default(autoincrement())
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId     Int       @map("user_id")
+
+  title      String    @default("")
+  amount     Int
+  type       EntryType
+  memo       String    @default("")
+  occurredOn DateTime  @default(now()) @map("occurred_on") @db.Date
+  createdAt  DateTime  @default(now()) @map("created_at") @db.Timestamptz
+
+  @@index([userId, occurredOn(sort: Desc)])
+  @@map("entries")
+}

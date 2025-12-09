@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ledgerly | 詳細</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div class="brand">
+          <div class="brand-badge">LG</div>
+          <div class="brand-text">
+            <h1>項目の詳細</h1>
+            <small>URLパラメータで選択された項目です</small>
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn secondary" href="/">一覧へ戻る</a>
+        </div>
+      </header>
+
+      <section class="detail-card">
+        <div class="card-header">
+          <h2 id="detailTitle">読み込み中...</h2>
+          <span id="detailType" class="pill">-</span>
+        </div>
+        <div class="stack">
+          <div><strong>金額:</strong> <span id="detailAmount">-</span></div>
+          <div><strong>日付:</strong> <span id="detailDate">-</span></div>
+          <div><strong>作成日:</strong> <span id="detailCreated">-</span></div>
+          <div><strong>メモ:</strong></div>
+          <div id="detailMemo" class="notice">-</div>
+        </div>
+        <div id="detailMessage" class="muted" style="margin-top: 10px;"></div>
+      </section>
+    </div>
+    <script src="/detail.js"></script>
+  </body>
+</html>

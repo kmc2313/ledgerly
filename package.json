@@ -1,0 +1,25 @@
+{
+  "name": "ledgerly",
+  "version": "1.0.0",
+  "description": "Ledgerly: simple income/expense tracker with Express and Postgres",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "init-db": "node scripts/init-db.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "npx prisma generate"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "6.15.0",
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "express-session": "^1.18.2",
+    "morgan": "^1.10.1",
+    "pg": "^8.16.3",
+    "prisma": "6.15.0"
+  }
+}

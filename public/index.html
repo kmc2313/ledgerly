@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ledgerly | Dashboard</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div class="brand">
+          <div class="brand-badge">LG</div>
+          <div class="brand-text">
+            <h1>Ledgerly</h1>
+            <small>毎日の収支をスマートに整える</small>
+          </div>
+        </div>
+        <div class="actions">
+          <span id="userEmail" class="badge">Guest</span>
+          <button class="btn secondary" id="logoutBtn">ログアウト</button>
+        </div>
+      </header>
+
+      <section class="summary" aria-live="polite">
+        <div class="summary-card income">
+          <h3>総収入</h3>
+          <div class="value" id="summaryIncome">¥0</div>
+        </div>
+        <div class="summary-card expense">
+          <h3>総支出</h3>
+          <div class="value" id="summaryExpense">¥0</div>
+        </div>
+        <div class="summary-card balance">
+          <h3>残高</h3>
+          <div class="value" id="summaryBalance">¥0</div>
+        </div>
+      </section>
+
+      <div class="card-grid">
+        <section class="panel">
+          <div class="card-header">
+            <h2>フィルター</h2>
+            <div class="muted" id="activeFilterLabel">すべて表示</div>
+          </div>
+          <div class="stack">
+            <div class="filters">
+              <div class="chip">
+                <label for="filterType">区分</label>
+                <select id="filterType">
+                  <option value="all">すべて</option>
+                  <option value="income">収入のみ</option>
+                  <option value="expense">支出のみ</option>
+                </select>
+              </div>
+              <div class="chip">
+                <label for="startDate">開始日</label>
+                <input type="date" id="startDate" />
+              </div>
+              <div class="chip">
+                <label for="endDate">終了日</label>
+                <input type="date" id="endDate" />
+              </div>
+            </div>
+            <div class="actions">
+              <button class="btn secondary" id="clearFilter">リセット</button>
+              <button class="btn" id="applyFilter">反映する</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="card-header">
+            <h2 id="formTitle">新規追加</h2>
+            <div class="muted" id="formStatus">amountと区分は必須</div>
+          </div>
+          <form id="entryForm" autocomplete="off">
+            <div class="form-row">
+              <label for="titleInput">項目名</label>
+              <input id="titleInput" type="text" placeholder="例: 昼食、給与、交通費" />
+            </div>
+            <div class="form-row inline">
+              <div>
+                <label for="amountInput">金額 (¥)</label>
+                <input id="amountInput" type="number" required min="0" />
+              </div>
+              <div>
+                <label for="typeInput">区分</label>
+                <select id="typeInput" required>
+                  <option value="">選択してください</option>
+                  <option value="income">収入</option>
+                  <option value="expense">支出</option>
+                </select>
+              </div>
+              <div>
+                <label for="dateInput">日付</label>
+                <input id="dateInput" type="date" />
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="memoInput">メモ</label>
+              <textarea id="memoInput" rows="3" placeholder="備考やメモ (任意)"></textarea>
+            </div>
+            <div class="actions">
+              <button class="btn" type="submit" id="submitBtn">保存</button>
+              <button class="btn secondary" type="button" id="cancelEdit">キャンセル</button>
+            </div>
+            <div id="formMessage" class="muted"></div>
+          </form>
+        </section>
+      </div>
+
+      <section class="panel">
+        <div class="card-header">
+          <h2>収支一覧</h2>
+          <div class="muted" id="listMeta">最新順に並んでいます</div>
+        </div>
+        <div id="entriesList" class="entries"></div>
+      </section>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

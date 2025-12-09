@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ledgerly | ログイン</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <div class="panel" style="max-width: 520px; margin: 40px auto;">
+        <div class="hero" style="margin-bottom: 12px;">
+          <div class="brand">
+            <div class="brand-badge">LG</div>
+            <div class="brand-text">
+              <h1>Ledgerly</h1>
+              <small>カムバック！</small>
+            </div>
+          </div>
+          <a href="/register.html">新規登録</a>
+        </div>
+        <h2 style="margin-bottom: 10px;">ログイン</h2>
+        <form id="loginForm" class="stack">
+          <div class="form-row">
+            <label for="loginEmail">メールアドレス</label>
+            <input id="loginEmail" type="email" required placeholder="you@example.com" />
+          </div>
+          <div class="form-row">
+            <label for="loginPassword">パスワード</label>
+            <input id="loginPassword" type="password" required placeholder="••••••••" />
+          </div>
+          <button class="btn" type="submit">ログイン</button>
+          <div id="loginMessage" class="muted"></div>
+        </form>
+      </div>
+    </div>
+    <script src="/auth.js"></script>
+  </body>
+</html>
